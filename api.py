@@ -5,7 +5,6 @@ from query import ask
 
 app = FastAPI()
 
-# 🔥 THIS MUST BE BEFORE ROUTES
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # allow all for development
@@ -21,3 +20,4 @@ class Question(BaseModel):
 def ask_question(q: Question):
     answer = ask(q.question)
     return {"answer": answer}
+
